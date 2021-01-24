@@ -1,0 +1,40 @@
+name: Publish Docker image
+# To MaastrichtU-IDS GitHub Container Registry
+# https://github.com/orgs/MaastrichtU-IDS/packages 
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+    - 'Dockerfile'
+    - '.github/workflows/publish-docker.yml'
+  schedule:
+    - cron: '0 3 * * 1'
+
+env:
+  IMAGE_PULLED: rocker/tidyverse:latest
+  IMAGE_PUSHED: ghcr.io/maastrichtu-ids/rstudio:latest
+
+jobs:
+
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Log into GitHub Container Registry
+      # TODO: Create a token with `read:packages` and `write:packages` scopes 
+      # And save it as an Actions secret CONTAINER_REGISTRY_GITHUB_TOKEN
+        run: echo "${{ secrets.CONTAINER_REGISTRY_GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Pull image from DockerHub
+        run: docker pull $IMAGE_PULLED
+
+      - name: Push image to GitHub Container Registry
+        run: |
+          docker tag $IMAGE_PULLED $IMAGE_PUSHED
+          docker push $IMAGE_PUSHED
+
+      # - name: Build image
+      #   run: docker build . --file Dockerfile --tag $IMAGE_PUSHED
