@@ -1,12 +1,12 @@
-[![Publish Docker image](https://github.com/MaastrichtU-IDS/rstudio/workflows/Publish%20Docker%20image/badge.svg)](https://github.com/MaastrichtU-IDS/rstudio/actions)
+**RStudio** image from https://hub.docker.com/r/rocker/tydiverse
 
-RStudio image from https://hub.docker.com/r/rocker/tydiverse
-
-Hosted on GitHub Container Registry (ghcr.io) to avoid DockerHub pull limitations.
+Hosted on GitHub Container Registry ([ghcr.io](https://ghcr.io)) to avoid DockerHub pull limitations.
 
 > Alternative: [CSCfi RStudio image for OpenShift](https://github.com/CSCfi/rstudio-openshift/blob/master/server/Dockerfile)
 
 ## Automatically updated
+
+[![Publish Docker image](https://github.com/MaastrichtU-IDS/rstudio/workflows/Publish%20Docker%20image/badge.svg)](https://github.com/MaastrichtU-IDS/rstudio/actions)
 
 The image on [ghcr.io](https://ghcr.io) is automatically updated every week (Monday at 3:00 GMT+1) by a GitHub Actions workflow to match the `latest` tag of [rocker/tydiverse](https://hub.docker.com/r/rocker/tydiverse)
 
@@ -35,7 +35,7 @@ docker run -d -p 8787:8787 -p 3838:3838 -e PASSWORD=password -e ROOT=true -e ADD
 
 ## Build
 
-Feel free to edit the `Dockerfile` to add packages to install in the image.
+Feel free to edit the `Dockerfile` to install additional packages in the image.
 
 ```bash
 docker build -t ghcr.io/maastrichtu-ids/rstudio:latest .
