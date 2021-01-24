@@ -8,7 +8,7 @@ Hosted on GitHub Container Registry (ghcr.io) to avoid DockerHub pull limitation
 
 ## Automatically updated
 
-The image on [ghcr.io](https://ghcr.io) is automatically updated every week by a GitHub Actions workflow to match the `latest` tag of [rocker/tydiverse](https://hub.docker.com/r/rocker/tydiverse)
+The image on [ghcr.io](https://ghcr.io) is automatically updated every week (Monday at 3:00 GMT+1) by a GitHub Actions workflow to match the `latest` tag of [rocker/tydiverse](https://hub.docker.com/r/rocker/tydiverse)
 
 ## Run
 

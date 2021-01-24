@@ -10,13 +10,13 @@ on:
     - '.github/workflows/publish-docker.yml'
   schedule:
     - cron: '0 3 * * 1'
+    # Monday at 3:00 GMT+1
 
 env:
   IMAGE_PULLED: rocker/tidyverse:latest
   IMAGE_PUSHED: ghcr.io/maastrichtu-ids/rstudio:latest
 
 jobs:
-
   publish:
     runs-on: ubuntu-latest
 
