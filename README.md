@@ -1,6 +1,6 @@
 **RStudio** image from https://hub.docker.com/r/rocker/tydiverse
 
-Hosted on GitHub Container Registry ([ghcr.io](https://ghcr.io)) to avoid DockerHub pull limitations.
+Hosted on GitHub Container Registry ([ghcr.io](https://ghcr.io)) to avoid DockerHub pull limitations, and easily deploy on clusters (such as Kubernetes).
 
 > Alternative: [CSCfi RStudio image for OpenShift](https://github.com/CSCfi/rstudio-openshift/blob/master/server/Dockerfile)
 
