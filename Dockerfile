@@ -25,7 +25,7 @@ RUN wget -O ~/.oh-my-zsh/custom/themes/vemonet_bira.zsh-theme https://raw.github
 RUN sed -i 's/robbyrussell/vemonet_bira/g' ~/.zshrc
 
 # Set default shell to ZSH
-ENV SHELL=/bin/zsh
+# ENV SHELL=/bin/zsh
 USER root
 RUN chsh -s /bin/zsh 
 USER rstudio
