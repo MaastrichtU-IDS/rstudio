@@ -1,10 +1,13 @@
-FROM rocker/tidyverse:latest
+FROM rocker/verse:latest
+# FROM rocker/tidyverse:3.6.3
 
 LABEL org.opencontainers.image.source https://github.com/MaastrichtU-IDS/rstudio
 # https://github.com/rocker-org/rocker-versioned/blob/master/rstudio/3.6.3.Dockerfile
 
 ENV ADD=shiny
+
 # Install Shiny server during Docker build
+COPY add_shiny.sh /etc/cont-init.d/add
 RUN bash /etc/cont-init.d/add
 
 # Install ZSH
