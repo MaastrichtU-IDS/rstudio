@@ -1,8 +1,10 @@
-FROM rocker/verse:latest
-# FROM rocker/tidyverse:3.6.3
+ARG BASE_IMAGE=rocker/verse:latest
+FROM $BASE_IMAGE
+# rocker/tidyverse:3.6.3
+# bioconductor/bioconductor_docker:devel
 
 LABEL org.opencontainers.image.source https://github.com/MaastrichtU-IDS/rstudio
-# https://github.com/rocker-org/rocker-versioned/blob/master/rstudio/3.6.3.Dockerfile
+# Source Dockerfile: https://github.com/rocker-org/rocker-versioned/blob/master/rstudio/3.6.3.Dockerfile
 
 ENV ADD=shiny
 
