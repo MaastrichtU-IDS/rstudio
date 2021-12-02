@@ -28,16 +28,13 @@ jobs:
       # # And save it as an Actions secret CONTAINER_REGISTRY_GITHUB_TOKEN
       #   run: echo "${{ secrets.CONTAINER_REGISTRY_GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      # - name: Pull image from DockerHub
-      #   run: docker pull $BASE_IMAGE
+      # - name: Build image
+      #   run: docker build . --file Dockerfile --tag $IMAGE_PUSHED
 
       # - name: Push image to GitHub Container Registry
       #   run: |
-      #     docker tag $BASE_IMAGE $IMAGE_PUSHED
       #     docker push $IMAGE_PUSHED
 
-      # - name: Build image
-      #   run: docker build . --file Dockerfile --tag $IMAGE_PUSHED
 
       - name: Set up Docker Buildx
         id: buildx

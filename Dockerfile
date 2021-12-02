@@ -6,12 +6,12 @@ FROM $BASE_IMAGE
 LABEL org.opencontainers.image.source https://github.com/MaastrichtU-IDS/rstudio
 # Source Dockerfile: https://github.com/rocker-org/rocker-versioned/blob/master/rstudio/3.6.3.Dockerfile
 
-# ENV ADD=shiny
+ENV ADD=shiny
 # ENV ROOT=true
 
 # Install Shiny server
-# COPY add_shiny.sh /etc/cont-init.d/add
-# RUN bash /etc/cont-init.d/add
+COPY add_shiny.sh /etc/cont-init.d/add
+RUN bash /etc/cont-init.d/add
 
 # Install ZSH
 # USER root
@@ -30,5 +30,5 @@ LABEL org.opencontainers.image.source https://github.com/MaastrichtU-IDS/rstudio
 # # RUN chsh -s /bin/zsh 
 # # USER rstudio
 
-# # Expose Shiny server
-# EXPOSE 3838
+# Expose Shiny server
+EXPOSE 3838
