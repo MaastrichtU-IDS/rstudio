@@ -26,9 +26,9 @@ RUN sed -i 's/robbyrussell/vemonet_bira/g' ~/.zshrc
 
 # Set default shell to ZSH
 # ENV SHELL=/bin/zsh
-USER root
-RUN chsh -s /bin/zsh 
-USER rstudio
+# USER root
+# RUN chsh -s /bin/zsh 
+# USER rstudio
 
 # Expose Shiny server
 EXPOSE 3838
