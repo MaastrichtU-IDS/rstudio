@@ -4,7 +4,9 @@ name: Publish RStudio Docker image
 on:
   workflow_dispatch:
   push:
-    branches: [ main, dev ]
+    branches:
+    - main
+    # - dev
     paths:
     - 'Dockerfile'
     - '.github/workflows/publish-docker.yml'
