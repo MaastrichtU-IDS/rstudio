@@ -12,14 +12,16 @@ The image on [ghcr.io](https://ghcr.io) is automatically updated every week (Mon
 
 ## Run
 
+Start RStudio on http://localhost:8787
+
 ```bash
-docker run -d -p 8787:8787 -e PASSWORD=password -e ROOT=true -v $(pwd):/home/rstudio ghcr.io/maastrichtu-ids/rstudio:latest
+docker run -it -p 8787:8787 -e PASSWORD=password -e ROOT=true ghcr.io/maastrichtu-ids/rstudio:latest
 ```
 
 In the container:
 
-* User, with `sudo` privileges: `rstudio`
-* Workspace path: `/home/rstudio`
+* User `rstudio` with `sudo` privileges
+* Workspace path is `/home/rstudio`
 
 Environment variables:
 
@@ -27,10 +29,10 @@ Environment variables:
 * `-e ROOT=true` : enable `sudo` 
 * `-e ADD=shiny` : install Shiny server on port 3838 at start (see [`rocker/shiny`](https://github.com/rocker-org/shiny) to run it in a separate container)
 
-Start RStudio with Shiny server:
+Start RStudio on http://localhost:8787 with Shiny server on http://localhost:3838, using your current directory as workspace:
 
 ```bash
-docker run -d -p 8787:8787 -p 3838:3838 -e PASSWORD=password -e ROOT=true -e ADD=shiny -v $(pwd):/home/rstudio ghcr.io/maastrichtu-ids/rstudio:latest
+docker run -it -p 8787:8787 -p 3838:3838 -e PASSWORD=password -e ROOT=true -e ADD=shiny -v $(pwd):/home/rstudio ghcr.io/maastrichtu-ids/rstudio:latest
 ```
 
 ## Build
