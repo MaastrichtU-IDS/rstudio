@@ -13,8 +13,8 @@ on:
     # Monday at 3:00 GMT+1
 
 env:
-  IMAGE_PULLED: rocker/tidyverse:latest
   IMAGE_PUSHED: ghcr.io/maastrichtu-ids/rstudio:latest
+  # BASE_IMAGE: rocker/verse:latest
 
 jobs:
   build-and-publish:
@@ -29,11 +29,11 @@ jobs:
       #   run: echo "${{ secrets.CONTAINER_REGISTRY_GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       # - name: Pull image from DockerHub
-      #   run: docker pull $IMAGE_PULLED
+      #   run: docker pull $BASE_IMAGE
 
       # - name: Push image to GitHub Container Registry
       #   run: |
-      #     docker tag $IMAGE_PULLED $IMAGE_PUSHED
+      #     docker tag $BASE_IMAGE $IMAGE_PUSHED
       #     docker push $IMAGE_PUSHED
 
       # - name: Build image
@@ -56,7 +56,7 @@ jobs:
         with:
           context: ./
           file: ./Dockerfile
-          # build-args: BASE_IMAGE=rocker/tidyverse:latest
+          # build-args: BASE_IMAGE=rocker/verse:latest
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ env.IMAGE_PUSHED }}

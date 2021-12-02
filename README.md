@@ -35,15 +35,11 @@ docker run -d -p 8787:8787 -p 3838:3838 -e PASSWORD=password -e ROOT=true -e ADD
 
 ## Build
 
+You can define the base image used to build RStudio with the build argument `BASE_IMAGE`, for example here with `bioconductor/bioconductor_docker:devel`
+
+```bash
+docker build -t ghcr.io/maastrichtu-ids/rstudio:latest --build-arg BASE_IMAGE=bioconductor/bioconductor_docker:devel .
+```
+
 Feel free to edit the `Dockerfile` to install additional packages in the image.
-
-```bash
-docker build -t ghcr.io/maastrichtu-ids/rstudio:latest .
-```
-
-## Push
-
-```bash
-docker push ghcr.io/maastrichtu-ids/rstudio:latest
-```
 
