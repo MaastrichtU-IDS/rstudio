@@ -25,10 +25,11 @@ RUN /rocker_scripts/install_shiny_server.sh
 # RUN chown -R rstudio:rstudio /run
 # USER rstudio
 
-## Install oh-my-zsh
-# RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# RUN wget -O ~/.oh-my-zsh/custom/themes/vemonet_bira.zsh-theme https://raw.githubusercontent.com/vemonet/zsh-theme-biradate/master/zsh/vemonet_bira.zsh-theme
-# RUN sed -i 's/robbyrussell/vemonet_bira/g' ~/.zshrc
+## Install Oh My ZSH! and custom theme
+# RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# RUN wget -O /home/$NB_USER/.oh-my-zsh/custom/themes/biratime.zsh-theme https://raw.github.com/vemonet/biratime/main/biratime.zsh-theme
+# RUN sed -i 's/^ZSH_THEME=".*"$/ZSH_THEME="biratime"/g' ~/.zshrc
+# RUN echo 'setopt NO_HUP' >> ~/.zshrc
 ## Set default shell to ZSH
 # ENV SHELL=/bin/zsh
 # USER root
