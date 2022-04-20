@@ -34,6 +34,20 @@ You can define the base image used to build RStudio with the build argument `BAS
 docker build -t ghcr.io/maastrichtu-ids/rstudio:latest --build-arg BASE_IMAGE=bioconductor/bioconductor_docker:devel .
 ```
 
+### RStudio for JupyterHub
+
+Build:
+
+```bash
+docker build -f jupyterhub.Dockerfile -t ghcr.io/maastrichtu-ids/rstudio:jupyterhub .
+```
+
+Run:
+
+```bash
+docker run -it -p 8888:8888 -e PASSWORD=password ghcr.io/maastrichtu-ids/rstudio:jupyterhub
+```
+
 Feel free to edit the `Dockerfile` to install additional packages in the image, and send a pull request!
 
 > Alternatives:
