@@ -27,7 +27,7 @@ RUN export download_url=$(curl -s https://api.github.com/repos/conda-forge/minif
     /bin/bash "miniforge.sh" -f -b -p "${CONDA_DIR}" && \
     rm "miniforge.sh" && \
     mamba config --system --set auto_update_conda false && \
-    mamba config --system --set show_channel_urls true \
+    mamba config --system --set show_channel_urls true && \
     chown -R ${NB_USER}:staff /opt/conda 
 
 USER ${NB_USER}
