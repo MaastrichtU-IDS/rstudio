@@ -40,9 +40,9 @@ ENV WORKSPACE="/home/${NB_USER}"
 ENV PERSISTENT_WORKSPACE="${WORKSPACE}/persistent"
 RUN mkdir -p $PERSISTENT_WORKSPACE
 WORKDIR ${WORKSPACE}
-VOLUME [ "${WORKSPACE}/persistent" ]
+VOLUME [ "${PERSISTENT_WORKSPACE}" ]
 
-    #   'jupyter-server-proxy>=3.1.0'
+#   'jupyter-server-proxy>=3.1.0'
 
 # CMD ["jupyter", "lab", "--allow-root", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--config=/etc/jupyter/jupyter_notebook_config.py"]
 
