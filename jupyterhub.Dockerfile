@@ -37,10 +37,10 @@ USER ${NB_USER}
 # RUN mamba install --quiet -y jupyterlab
 
 ENV WORKSPACE="/home/${NB_USER}"
-ENV PERSISTENT_WORKSPACE="${WORKSPACE}/persistent"
-RUN mkdir -p $PERSISTENT_WORKSPACE
+ENV PERSISTENT_FOLDER="${WORKSPACE}/persistent"
+RUN mkdir -p $PERSISTENT_FOLDER
 WORKDIR ${WORKSPACE}
-VOLUME [ "${PERSISTENT_WORKSPACE}" ]
+VOLUME [ "${PERSISTENT_FOLDER}" ]
 
 #   'jupyter-server-proxy>=3.1.0'
 
