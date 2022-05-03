@@ -26,7 +26,8 @@ RUN export download_url=$(curl -s https://api.github.com/repos/conda-forge/minif
     chown -R ${NB_USER}:staff /opt/conda 
 
 
-ENV PATH=/opt/pyenv/bin:/home/${NB_USER}/.local/bin:$PATH
+# ENV PATH=/opt/pyenv/bin:/home/${NB_USER}/.local/bin:$PATH
+ENV PATH=/opt/pyenv/bin:$PATH
 RUN echo "PATH=${PATH}" >> ${R_HOME}/etc/Renviron.site
 RUN sed -i 's/^export PATH=.*$/export PATH=${PATH}/g' ~/.profile
 
