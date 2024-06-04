@@ -18,9 +18,13 @@ on:
 #   IMAGE_PUSHED: ghcr.io/maastrichtu-ids/rstudio:latest
 #   BASE_IMAGE: rocker/verse:latest
 
-jobs:
+jobs:     
   build-and-publish:
     runs-on: ubuntu-latest
+
+    permissions:
+      actions: write
+      packages: write
 
     steps:
       - uses: actions/checkout@v2
