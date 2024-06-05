@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=rocker/studio:latest
+ARG BASE_IMAGE=rocker/rstudio:latest
 FROM $BASE_IMAGE
 # rocker/tidyverse:3.6.3
 # bioconductor/bioconductor_docker:devel
