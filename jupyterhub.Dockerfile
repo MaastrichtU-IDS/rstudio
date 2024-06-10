@@ -15,7 +15,8 @@ ENV CONDA_DIR=${CONDA_DIR:-/opt/conda} \
     LANG=${LANG:-en_US.UTF-8} \
     LANGUAGE=${LANGUAGE:-en_US.UTF-8}
 ENV PATH="${CONDA_DIR}/bin:${PATH}"
-RUN export download_url=$(curl -s https://api.github.com/repos/conda-forge/miniforge/releases/latest | grep browser_download_url | grep -P "Mambaforge-\d+((\.|-)\d+)*-Linux-x86_64.sh" | grep -v sha256 | cut -d '"' -f 4) && \
+# RUN export download_url=$(curl -s https://api.github.com/repos/conda-forge/miniforge/releases/latest | grep browser_download_url | grep -P "Mambaforge-\d+((\.|-)\d+)*-Linux-x86_64.sh" | grep -v sha256 | cut -d '"' -f 4) && \
+RUN export download_url=$(curl -s https://api.github.com/repos/conda-forge/miniforge/releases/latest | grep browser_download_url | grep -P Mambaforge-Linux-x86_64.sh | grep -v sha256 | cut -d '"' -f 4) && \    
     echo "Downloading latest miniforge from $download_url" && \
     curl -Lf -o miniforge.sh $download_url && \
     # curl -Lf "https://github.com/conda-forge/miniforge/releases/download/${miniforge_version}/${miniforge_installer}" -o miniforge.sh
