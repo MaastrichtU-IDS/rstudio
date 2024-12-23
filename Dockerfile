@@ -18,7 +18,7 @@ RUN /rocker_scripts/install_shiny_server.sh
 
 ## Change ownership of the workspace to allow R/W of PVCs
 # USER root
-RUN chown -R 1000:1000 /home/rstudio
+COPY init_userconf.sh /rocker_scripts/init_userconf.sh
 # USER rstudio
 
 ## Install ZSH cause permissions issues
