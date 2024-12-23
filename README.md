@@ -4,7 +4,7 @@ Hosted on GitHub Container Registry ([ghcr.io](https://ghcr.io)) to avoid Docker
 
 ## 🏷️ Automatically updated
 
-[![Publish Docker image](https://github.com/MaastrichtU-IDS/rstudio/workflows/publish-docker.yml/badge.svg)](https://github.com/MaastrichtU-IDS/rstudio/actions) [![Publish RStudio Docker image for JupyterHub](https://github.com/MaastrichtU-IDS/rstudio/actions/workflows/publish-docker-jupyterhub.yml/badge.svg)](https://github.com/MaastrichtU-IDS/rstudio/actions/workflows/publish-docker-jupyterhub.yml)
+[![Publish Docker image](https://github.com/MaastrichtU-IDS/rstudio/actions/workflows/publish-docker.yml/badge.svg)](https://github.com/MaastrichtU-IDS/rstudio/actions) [![Publish RStudio Docker image for JupyterHub](https://github.com/MaastrichtU-IDS/rstudio/actions/workflows/publish-docker-jupyterhub.yml/badge.svg)](https://github.com/MaastrichtU-IDS/rstudio/actions/workflows/publish-docker-jupyterhub.yml)
 
 The image on [ghcr.io](https://ghcr.io) is automatically updated every week (Monday at 3:00 GMT+1) by a GitHub Actions workflow to match the `latest` tag of [rocker/verse](https://hub.docker.com/r/rocker/verse)
 
