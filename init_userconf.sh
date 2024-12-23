@@ -21,7 +21,7 @@ USERHOME="/home/${USER}"
 if [ "${RUNROOTLESS}" = "true" ]; then
     printf "Assuming the container runs under rootless mode\n"
     printf "Under rootless mode,\n"
-    printf " - You will log in using 'root' as user\n"
+    # printf " - You will log in using 'root' as user\n"
     printf " - You will have root privileges within the container (e.g. apt)\n"
     printf " - The files you create as root on mounted volumes will appear at the host as owned by the user who started the container\n"
     printf " - You can't modify host files you don't have permission to\n"
@@ -43,10 +43,10 @@ if [ "${RUNROOTLESS}" = "true" ]; then
     #
     # Higher user ids in the container (e.g. 1000) get mapped to very high user
     # ids at the host. We don't need that and it just confuses things
-    USER="root"
+    USER="${USER}"
     USERID=0
     GROUPID=0
-    USERHOME="/root"
+    USERHOME="/home/${USER}"
 
     # Keep all groups that have been set:
     # When running rootless podman, podman may set the groups of the host user
