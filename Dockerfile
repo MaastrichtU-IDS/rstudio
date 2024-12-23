@@ -17,7 +17,7 @@ RUN /rocker_scripts/install_shiny_server.sh
 # RUN bash /etc/cont-init.d/add
 
 ## Change ownership of the workspace to allow R/W of PVCs
-USER root
+# USER root
 RUN chown -R 1000:1000 /home/rstudio
 # USER rstudio
 
