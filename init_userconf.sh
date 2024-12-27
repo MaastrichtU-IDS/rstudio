@@ -145,8 +145,8 @@ elif [ "$USERID" -lt 1000 ]; then # Probably a macOS user, https://github.com/ro
 fi
 
 if [ "${RUNROOTLESS}" = "true" ]; then
-    echo "deleting the default user ($DEFAULT_USER) since it is not needed."
-    userdel "$DEFAULT_USER"
+    echo "Testing the default user ($DEFAULT_USER) since it is not needed."
+    # userdel "$DEFAULT_USER"
 elif [ "$USERID" -ne 1000 ]; then ## Configure user with a different USERID if requested.
     echo "deleting the default user"
     userdel "$DEFAULT_USER"
