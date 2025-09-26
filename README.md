@@ -16,15 +16,16 @@ Start RStudio on http://localhost:8787 with Shiny server on http://localhost:383
 docker run -it -p 8787:8787 -e PASSWORD=password -e ROOT=true ghcr.io/maastrichtu-ids/rstudio:latest
 ```
 
-In the container:
-
-* Workspace path is `/home/rstudio`
-* User is `rstudio` with `sudo` privileges
-
 Environment variables:
 
 * `-e PASSWORD=password` : set password
 * `-e ROOT=true` : enable `sudo` 
+
+In the container when using the flag ROOT=true:
+
+* Workspace path is `/root`
+* User is `root` with `sudo` privileges
+
 
 ## 📦️ Build
 
