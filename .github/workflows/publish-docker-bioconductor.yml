@@ -5,6 +5,7 @@ on:
   push:
     branches:
     - main
+    - RCS-779
     paths:
     - 'bioconductor-rstudio/**'
     - '.github/workflows/publish-docker-bioconductor.yml'
