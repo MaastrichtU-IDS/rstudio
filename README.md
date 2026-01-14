@@ -55,3 +55,26 @@ Feel free to edit the `Dockerfile` to install additional packages in the image, 
 >
 > *  RStudio in Docker: [CSCfi RStudio image for OpenShift](https://github.com/CSCfi/rstudio-openshift/blob/master/server/Dockerfile)
 > * Run the [Shiny server in a separate container](https://github.com/rocker-org/shiny)
+
+
+# Bioconductor RStudio Docker Image
+
+Internal mirror of the official Bioconductor Docker image to avoid Docker Hub rate limits.
+
+**Source**: https://hub.docker.com/r/bioconductor/bioconductor_docker
+
+## Current Version
+
+- Bioconductor: 3.21
+- R: 4.5.2
+
+## Build
+```bash
+docker build -t ghcr.io/maastrichtu-ids/rstudio:bioconductor-3.21 -f bioconductor/Dockerfile .
+```
+
+## Run
+```bash
+docker pull ghcr.io/maastrichtu-ids/rstudio:bioconductor-3.21
+docker run -it -p 8787:8787 -e PASSWORD=password ghcr.io/maastrichtu-ids/rstudio:bioconductor-3.21
+```
