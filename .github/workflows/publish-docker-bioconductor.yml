@@ -14,7 +14,7 @@ on:
 
 env:
   IMAGE_PULLED: bioconductor/bioconductor_docker:3.21-R-4.5.2
-  IMAGE_PUSHED: ghcr.io/maastrichtu-ids/rstudio:bioconductor-3.21
+  IMAGE_PUSHED: ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21
 
 jobs:
   publish-bioconductor:
