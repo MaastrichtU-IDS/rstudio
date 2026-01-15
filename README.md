@@ -70,11 +70,11 @@ Internal mirror of the official Bioconductor Docker image to avoid Docker Hub ra
 
 ## Build
 ```bash
-docker build -t ghcr.io/maastrichtu-ids/rstudio:bioconductor-3.21 -f bioconductor/Dockerfile .
+docker build -t ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21 -f bioconductor/Dockerfile .
 ```
 
 ## Run
 ```bash
-docker pull ghcr.io/maastrichtu-ids/rstudio:bioconductor-3.21
-docker run -it -p 8787:8787 -e PASSWORD=password ghcr.io/maastrichtu-ids/rstudio:bioconductor-3.21
+docker pull ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21
+docker run -it -p 8787:8787 -e PASSWORD=password ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21
 ```
