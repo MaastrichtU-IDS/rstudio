@@ -1,0 +1,42 @@
+name: Publish Bioconductor RStudio Docker image
+# To MaastrichtU-IDS GitHub Container Registry
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    - RCS-779
+    paths:
+    - 'bioconductor-rstudio/**'
+    - '.github/workflows/publish-docker-bioconductor.yml'
+  schedule:
+    - cron: '0 3 * * 1'
+
+env:
+  IMAGE_PULLED: bioconductor/bioconductor_docker:3.21-R-4.5.2
+  IMAGE_PUSHED: ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21
+
+jobs:
+  publish-bioconductor:
+    runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Pull Bioconductor image from DockerHub
+        run: docker pull $IMAGE_PULLED
+
+      - name: Tag and push image to GitHub Container Registry
+        run: |
+          docker tag $IMAGE_PULLED $IMAGE_PUSHED
+          docker push $IMAGE_PUSHED
