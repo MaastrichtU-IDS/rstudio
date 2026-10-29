@@ -4,7 +4,7 @@ Hosted on GitHub Container Registry ([ghcr.io](https://ghcr.io)) to avoid Docker
 
 ## 🏷️ Automatically updated
 
-[![Publish Docker image](https://github.com/MaastrichtU-IDS/rstudio/actions/workflows/publish-docker.yml/badge.svg)](https://github.com/MaastrichtU-IDS/rstudio/actions) [![Publish RStudio Docker image for JupyterHub](https://github.com/MaastrichtU-IDS/rstudio/actions/workflows/publish-docker-jupyterhub.yml/badge.svg)](https://github.com/MaastrichtU-IDS/rstudio/actions/workflows/publish-docker-jupyterhub.yml)
+[![Publish Docker image](https://github.com/MaastrichtU-IDS/rstudio/actions/workflows/publish-docker.yml/badge.svg)](https://github.com/MaastrichtU-IDS/rstudio/actions)
 
 The image on [ghcr.io](https://ghcr.io) is automatically updated every week (Monday at 3:00 GMT+1) by a GitHub Actions workflow to match the `latest` tag of [rocker/verse](https://hub.docker.com/r/rocker/verse)
 
@@ -26,55 +26,34 @@ In the container when using the flag ROOT=true:
 * Workspace path is `/root`
 * User is `root` with `sudo` privileges
 
-
 ## 📦️ Build
 
-You can define the base image used to build RStudio with the build argument `BASE_IMAGE`, for example here with `bioconductor/bioconductor_docker:devel`
-
 ```bash
-docker build -t ghcr.io/maastrichtu-ids/rstudio:latest --build-arg BASE_IMAGE=bioconductor/bioconductor_docker:devel .
+docker build -f Dockerfile -t ghcr.io/maastrichtu-ids/rstudio:latest .
 ```
 
-### RStudio for JupyterHub
-
-Build:
-
-```bash
-docker build -f jupyterhub.Dockerfile -t ghcr.io/maastrichtu-ids/rstudio:jupyterhub .
-```
-
-Run:
-
-```bash
-docker run -it -p 8888:8888 -e PASSWORD=password ghcr.io/maastrichtu-ids/rstudio:jupyterhub
-```
-
-Feel free to edit the `Dockerfile` to install additional packages in the image, and send a pull request!
-
-> Alternatives:
->
-> *  RStudio in Docker: [CSCfi RStudio image for OpenShift](https://github.com/CSCfi/rstudio-openshift/blob/master/server/Dockerfile)
-> * Run the [Shiny server in a separate container](https://github.com/rocker-org/shiny)
-
-
-# Bioconductor RStudio Docker Image
+## Bioconductor RStudio Docker Image
 
 Internal mirror of the official Bioconductor Docker image to avoid Docker Hub rate limits.
 
 **Source**: https://hub.docker.com/r/bioconductor/bioconductor_docker
 
-## Current Version
+## Version Information
 
-- Bioconductor: 3.21
-- R: 4.5.2
+- **Bioconductor**: 3.21
+- **R Version**: 4.5.2
+- **Internal URL**: `ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21`
 
 ## Build
+
 ```bash
-docker build -t ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21 -f bioconductor/Dockerfile .
+docker build -f bioconductor/Dockerfile -t ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21 .
 ```
 
 ## Run
+
 ```bash
 docker pull ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21
+
 docker run -it -p 8787:8787 -e PASSWORD=password ghcr.io/maastrichtu-ids/bioconductor-rstudio:3.21
 ```

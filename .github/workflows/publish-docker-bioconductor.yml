@@ -1,5 +1,4 @@
 name: Publish Bioconductor RStudio Docker image
-# To MaastrichtU-IDS GitHub Container Registry
 on:
   workflow_dispatch:
   push:
